@@ -34,24 +34,15 @@ class queue:
 
     def sol(self):
         mid=self.n//2
-        que1=[]
-        que2=[]
-        for i in range(len(self.que)):
-            if i%2==0:
-                que1.append(self.dequeue())
-            else:
-                que2.append(self.dequeue())
-        res=[]
-        print(que1,que2)
+        stk1=[]
+        stk2=[]
         for i in range(mid):
-            res.append(que1.pop(0))
-            # res.append(que2.pop(0))
-        print(res)
-
-
-
-
-
+           stk1.append(self.que.pop(0))
+           stk2.append(self.que.pop())
+        for i in range(mid):
+            self.que.append(stk1.pop(0))
+            self.que.append(stk2.pop(-1))
+        print(self.que)
 
 
 if __name__ == '__main__':
